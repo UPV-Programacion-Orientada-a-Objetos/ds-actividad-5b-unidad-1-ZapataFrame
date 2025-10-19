@@ -5,9 +5,6 @@
 #include <string>
 
 template <typename T, int M, int N>
-class MatrizEstatica;
-
-template <typename T, int M, int N>
 class MatrizEstatica : public MatrizBase<T>
 {
     T _datos[M][N];
@@ -18,6 +15,15 @@ public:
     {
         this->_filas = M;
         this->_columnas = N;
+        
+        // inicializar en 0
+        for (int i = 0; i < this->_filas; i++)
+        {
+            for (int j = 0; j < this->_columnas; j++)
+            {
+                this->set(i, j, 0);
+            }
+        }
     };
 
     // Copy constructor

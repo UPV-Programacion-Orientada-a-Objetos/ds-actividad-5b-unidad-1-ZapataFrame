@@ -4,8 +4,6 @@
 #include <iomanip>
 #include <string>
 
-template <typename T>
-class MatrizDinamica;
 
 template <typename T>
 class MatrizDinamica : public MatrizBase<T>
@@ -105,7 +103,7 @@ public:
     {
         if (this->_filas != other.getFilas() || this->_columnas != other.getColumnas())
         {
-            throw std::invalid_argument("Cannot addition two matriz with differents sizes");
+            throw std::invalid_argument("Cannot add two matrices with different sizes");
         }
 
         MatrizDinamica<T> *resultado = new MatrizDinamica<T>(this->_filas, this->_columnas);
