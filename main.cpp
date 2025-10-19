@@ -68,7 +68,7 @@ int main()
     printMessage("Llamando al destructor de B...");
     printMessage("Liberando memoria de B (Matriz Estática)...");
     delete B;
-    
+
     printMessage("Llamando al destructor de C...");
     printMessage("Liberando memoria de C (Matriz Dinámica)...");
     delete C;
@@ -85,7 +85,6 @@ int main()
     printMessage("Liberando memoria de F (Matriz Estática)...");
     delete F;
 
-    printMessage("Bye!");
     printMessage("Bye!");
 
     return 0;
