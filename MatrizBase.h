@@ -19,11 +19,15 @@ public:
     virtual void imprimir() const = 0;
 
     virtual void set(int i, int j, T value) = 0;
-
     virtual T get(int i, int j) const = 0;
 
     int getFilas() const { return _filas; }
     int getColumnas() const { return _columnas; }
+
+    MatrizBase<T> *operator+(const MatrizBase<T> &otra) const
+    {
+        return sumar(otra);
+    }
 
     T getInput(const std::string prompt)
     {

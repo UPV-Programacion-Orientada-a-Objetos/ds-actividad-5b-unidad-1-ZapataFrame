@@ -27,7 +27,7 @@ int main()
     printMessage("// 3. Operación Polimórfica (Suma)");
     printMessage("SUMANDO: Matriz C = A + B ...");
     printMessage("Matriz Resultado C (3x2, Tipo FLOAT):");
-    MatrizBase<float> *C = A->sumar(*B);
+    MatrizBase<float> *C = *A + *B;
 
     printMessage("Matriz Resultado C (3x2, Tipo FLOAT)");
     C->imprimir();
