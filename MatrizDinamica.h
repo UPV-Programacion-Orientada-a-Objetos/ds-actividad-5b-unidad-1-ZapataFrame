@@ -1,3 +1,4 @@
+#include "MatrizBase.h"
 #include <iostream>
 #include <stdexcept>
 #include <iomanip>
@@ -31,7 +32,7 @@ public:
         // Asignar nuevos elementos
         this->_filas = other._filas;
         this->_columnas = other._columnas;
-        this->_datos = this->copyMatriz(other._datos);
+        this->_datos = this->copyMatriz(other._datos, other.getFilas(), other.getColumnas());
     };
 
     // Copy operator
@@ -41,12 +42,12 @@ public:
         {
             if (this->_datos != nullptr)
             {
-                deleteMatriz(this->_datos);
+                deleteMatriz(this->_datos, this->_filas);
             }
             // Asignar nuevos elementos
             this->_filas = other._filas;
             this->_columnas = other._columnas;
-            this->_datos = this->copyMatriz(other._datos);
+            this->_datos = this->copyMatriz(other._datos, other.getFilas(), other.getColumnas());
         }
         return *this;
     };
@@ -70,7 +71,10 @@ public:
     {
         if (this != &other)
         {
-
+            if (this->_datos != nullptr)
+            {
+                deleteMatriz(this->_datos, this->_filas);
+            }
             // mover elementos
             this->_filas = other._filas;
             this->_columnas = other._columnas;
@@ -164,7 +168,7 @@ private:
         return newMatriz;
     }
 
-    T **copyMatriz(T **matriz, int f, int c = 0)
+    T **copyMatriz(T **matriz, int f, int c)
     {
         T **newMatriz = new T *[f];
         for (int i = 0; i < f; i++)

@@ -1,3 +1,4 @@
+#include "MatrizBase.h"
 #include <iostream>
 #include <stdexcept>
 #include <iomanip>
